@@ -1,0 +1,114 @@
+:root{
+  --ink:#1a1814;
+  --paper:#f3efe4;
+  --paper2:#ece6d8;
+  --muted:#4a453c;
+  --line:#2a261f;
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#cfc8b8;
+  color:var(--ink);
+  font-family:var(--body);
+  -webkit-font-smoothing:antialiased;
+  padding:24px 12px;
+  line-height:1.5;
+}
+.skip-link{position:fixed;left:-999px;top:10px;z-index:50;background:var(--ink);color:var(--paper);padding:8px 14px;text-decoration:none}
+.skip-link:focus{left:12px}
+
+/* feuille de journal */
+.paper{
+  max-width:1120px;margin:0 auto;background:var(--paper);
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(0,0,0,.012) 29px);
+  padding:38px clamp(20px,4vw,56px) 30px;
+  box-shadow:0 24px 60px -28px rgba(0,0,0,.55);
+  border:1px solid #ddd5c2;
+}
+
+/* MASTHEAD */
+.masthead{text-align:center;border-bottom:3px double var(--line);padding-bottom:14px}
+.masthead-top{display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:10px}
+.title{font-family:var(--serif);font-weight:900;font-size:clamp(54px,11vw,128px);line-height:.86;letter-spacing:-.02em}
+.title-em{font-style:italic;font-weight:700}
+.masthead-sub{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:12px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rule-dot{opacity:.5}
+.masthead-rule{height:0;border-top:1px solid var(--line);margin-top:14px}
+
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink);font-weight:500;margin-bottom:8px}
+.kicker::before{content:"■ ";font-size:8px;vertical-align:middle}
+
+/* UNE */
+.lead{margin-top:22px}
+.lead-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(20px,3vw,40px);align-items:start}
+.lead-main{border-right:1px solid var(--line);padding-right:clamp(16px,2vw,30px)}
+.headline{font-family:var(--serif);font-weight:900;font-size:clamp(28px,4.4vw,52px);line-height:1.02;letter-spacing:-.01em;margin:6px 0 12px}
+.standfirst{font-family:var(--body);font-style:italic;font-size:clamp(15px,1.8vw,19px);color:var(--muted);margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.columns-2{column-count:2;column-gap:26px;column-rule:1px solid var(--line)}
+.lead-para{margin-bottom:0}
+.lead-body p{margin-bottom:12px;text-align:justify;hyphens:auto}
+.dropcap{float:left;font-family:var(--serif);font-weight:900;font-size:64px;line-height:.72;padding:6px 8px 0 0;color:var(--ink)}
+
+.lead-figure{margin:0}
+.lead-figure img{width:100%;height:auto;filter:grayscale(1) contrast(1.12);display:block}
+.lead-figure figcaption{font-family:var(--mono);font-size:10.5px;line-height:1.4;color:var(--muted);
+  border-top:1px solid var(--line);padding-top:7px;margin-top:8px;text-transform:uppercase;letter-spacing:.04em}
+.credit{display:block;opacity:.7;margin-top:3px}
+
+/* filet de section */
+.section-rule{display:flex;align-items:center;gap:14px;margin:30px 0 18px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.section-rule::before,.section-rule::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* SOMMAIRE */
+.toc ol{list-style:none;columns:2;column-gap:40px}
+.toc li{break-inside:avoid;border-bottom:1px dotted #b8b09c;padding:9px 0}
+.toc a{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--body);font-size:15px}
+.toc-no{font-family:var(--serif);font-weight:700;font-size:15px}
+.toc-page{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.toc a:hover{color:var(--muted)}
+
+/* ARTICLES */
+.articles{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px) clamp(20px,3vw,40px);margin-top:8px}
+.article{border-top:2px solid var(--ink);padding-top:14px}
+.article:nth-child(odd){border-right:1px solid var(--line);padding-right:clamp(16px,2vw,30px)}
+.article:nth-child(even){padding-left:clamp(16px,2vw,30px)}
+.article-head{font-family:var(--serif);font-weight:700;font-size:clamp(21px,2.6vw,30px);line-height:1.06;margin:4px 0 6px;letter-spacing:-.01em}
+.byline{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.article-body p{margin-bottom:11px;text-align:justify;hyphens:auto}
+.closing-article{grid-column:1 / -1;border-top:3px double var(--ink);margin-top:6px}
+.closing-article .article-body{max-width:760px}
+.signoff{font-family:var(--serif);font-style:italic;font-size:18px;margin-top:10px}
+
+/* COLOPHON */
+.colophon{margin-top:34px}
+.colophon-rule{border-top:3px double var(--line);margin-bottom:14px}
+.colophon p{font-family:var(--mono);font-size:11px;line-height:1.6;letter-spacing:.03em;color:var(--muted);text-align:center;max-width:680px;margin:0 auto}
+
+/* RESPONSIVE */
+@media(max-width:720px){
+  body{padding:10px 4px}
+  .paper{padding:22px 16px}
+  .lead-grid{grid-template-columns:1fr}
+  .lead-main{border-right:none;padding-right:0;border-bottom:1px solid var(--line);padding-bottom:18px}
+  .lead-figure{margin-top:16px}
+  .columns-2,.toc ol{column-count:1}
+  .articles{grid-template-columns:1fr;gap:24px}
+  .article:nth-child(odd){border-right:none;padding-right:0}
+  .article:nth-child(even){padding-left:0}
+  .masthead-top{flex-direction:column;gap:4px;font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+/* Reveal subtil (journal : apparition douce) */
+.article,.lead,.toc{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.article.in,.lead.in,.toc.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.article,.lead,.toc{opacity:1;transform:none;transition:none}}
